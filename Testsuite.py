@@ -4,7 +4,7 @@ import time
 
 def main():
     for i in range(1,2):
-        print(f"Running Testcase{i}.py")
+        print(f"Running Testcase{i}.py",flush=True)
         testcase = f"Testcase{i}.py"
         subprocess.run(["python", testcase,str(i)])
         print(f"Testcase{i} execution complete")
