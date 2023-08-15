@@ -7,6 +7,7 @@ def run_script(testcase_name):
 
 # Execute Testcases
 if __name__ == "__main__":
+    print("MAIN FUNCTION")
     for i in range(1,3):
         print(f"Running Testcase{i}.py")
         testcase = f"Testcase{i}.py"
