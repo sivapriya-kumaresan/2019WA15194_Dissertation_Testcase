@@ -5,6 +5,7 @@ import time
 def run_script(testcase_name):
     subprocess.run(["python", testcase_name])
 
+# Execute Testcases
 if __name__ == "__main__":
     for i in range(1,3):
         print(f"Running Testcase{i}.py")
