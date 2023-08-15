@@ -2,7 +2,7 @@
 import subprocess
 import time
 
-def run_script(self,testcase_name):
+def run_script(testcase_name):
     subprocess.run(["python", testcase_name])
 
 for i in range(1,3):
