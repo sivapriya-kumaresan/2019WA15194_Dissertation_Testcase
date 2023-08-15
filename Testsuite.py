@@ -5,7 +5,7 @@ import time
 def run_script(testcase_name):
     subprocess.run(["python", testcase_name])
 
-def main()
+def main():
     for i in range(1,3):
         print(f"Running Testcase{i}.py")
         testcase = f"Testcase{i}.py"
