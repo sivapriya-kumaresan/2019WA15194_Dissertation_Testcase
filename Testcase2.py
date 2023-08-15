@@ -11,7 +11,7 @@ class TestAddFunction(unittest.TestCase):
 
     def test_add_negative_numbers(self):
         result = add(-2, -5)
-            self.assertEqual(result, -7)  # Intentional indentation error here
+            self.assertEqual(result, -7)  
 
 if __name__ == "__main__":
     unittest.main()
