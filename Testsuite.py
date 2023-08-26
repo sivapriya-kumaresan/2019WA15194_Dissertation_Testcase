@@ -5,6 +5,7 @@ try:
     from tabulate import tabulate 
 except:
     os.system("python -m pip install tabulate")
+    from tabulate import tabulate
 testcase_result = [["TESTCASE TITLE " ,"RESULT"]]
 
 def main():
