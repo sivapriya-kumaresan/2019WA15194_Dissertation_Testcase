@@ -1,5 +1,5 @@
 # Testsuite to execute all testcases
-import subprocess
+import os
 import time
 
 def main():
@@ -8,7 +8,7 @@ def main():
         print(f"Running Testcase{i}.py",flush=True)
         time.sleep(5)
         testcase = f"Testcase{i}.py"
-        subprocess.run(["python", testcase,str(i)])
+        os.system(f"python {testcase}")
         print(f"Testcase{i} execution complete")
         print("="*100)
         print("Wait for 10 seconds before executing next testcase")
