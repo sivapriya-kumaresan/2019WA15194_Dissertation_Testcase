@@ -8,11 +8,12 @@ def main():
         print(f"Running Testcase{i}.py",flush=True)
         time.sleep(5)
         testcase = f"Testcase{i}.py"
-        os.system(f"python {testcase}")
+        status = os.system(f"python {testcase}")
         print(f"Testcase{i} execution complete")
-        print("="*100)
         print("Wait for 10 seconds before executing next testcase")
         time.sleep(10)
+        print("="*100)
+        print("Testcase result : ",status)
         print("="*100)
 # Execute Testcases
 if __name__ == "__main__":
