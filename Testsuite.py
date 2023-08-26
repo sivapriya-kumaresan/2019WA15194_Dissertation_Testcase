@@ -20,8 +20,8 @@ def main():
         print("Testcase result : ",result)
         testcase_result.append([testcase,result])
         print("="*100)
-   result_table = tabulate(testcase_result,headers='firstrow',tablefmt='grid') 
-   print(result_table)
+    result_table = tabulate(testcase_result,headers='firstrow',tablefmt='grid') 
+    print(result_table)
 # Execute Testcases
 if __name__ == "__main__":
     main()
