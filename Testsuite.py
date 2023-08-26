@@ -1,6 +1,8 @@
 # Testsuite to execute all testcases
 import os
 import time
+import tabulate
+testcase_result = [["TESTCASE TITLE " ,"RESULT"]]
 
 def main():
     for i in range(1,2):
@@ -14,8 +16,12 @@ def main():
         time.sleep(10)
         print("="*100)
         result = "PASS" if not status else "FAIL"
+        print("Testcase name : ",testcase)
         print("Testcase result : ",result)
+        testcase_result.append([testcase,result])
         print("="*100)
+   result_table = tabulate(testcase_result,headers='firstrow',tablefmt='grid') 
+   print(result_table)
 # Execute Testcases
 if __name__ == "__main__":
     main()
