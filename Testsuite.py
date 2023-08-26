@@ -1,7 +1,10 @@
 # Testsuite to execute all testcases
 import os
 import time
-from tabulate import tabulate 
+try:
+    from tabulate import tabulate 
+except:
+    os.system("python -m pip install tabulate")
 testcase_result = [["TESTCASE TITLE " ,"RESULT"]]
 
 def main():
