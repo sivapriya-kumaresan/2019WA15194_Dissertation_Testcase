@@ -13,7 +13,7 @@ def main():
         print("Wait for 10 seconds before executing next testcase")
         time.sleep(10)
         print("="*100)
-        result = "PASS" if status else "FAIL"
+        result = "PASS" if not status else "FAIL"
         print("Testcase result : ",result)
         print("="*100)
 # Execute Testcases
