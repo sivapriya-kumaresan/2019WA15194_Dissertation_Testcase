@@ -1,7 +1,7 @@
 # Testsuite to execute all testcases
 import os
 import time
-import tabulate from tabulate
+from tabulate import tabulate 
 testcase_result = [["TESTCASE TITLE " ,"RESULT"]]
 
 def main():
