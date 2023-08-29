@@ -1,5 +1,9 @@
-import paramiko
-
+try:
+    import paramiko 
+except:
+    os.system("python -m pip install paramiko")
+    import paramiko 
+  
 ssh_username = "127.0.0.1"
 ssh_password = "admin"
 ssh_server = "localhost"
