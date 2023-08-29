@@ -1,17 +1,20 @@
 import os
-try:
-    import pandas as pd
-    from sklearn.model_selection import train_test_split
-    from sklearn.preprocessing import LabelEncoder
-    from sklearn.tree import DecisionTreeClassifier
-    from sklearn.metrics import accuracy_score
-    from sklearn.feature_extraction.text import CountVectorizer
-    import requests
-    import re
-except ImportError:
-    os.
 
-
+package_to_install = ['pandas','sklearn','requests','regex']
+for package_name in package_to_install:
+    try:
+        __import__(package_name)
+    except ImportError:
+        os.system(f"python -m pip install {package_name}")
+        
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.feature_extraction.text import CountVectorizer
+import requests
+import re
 
 def predict_failure_solution(failure):
     # Load the dataset
