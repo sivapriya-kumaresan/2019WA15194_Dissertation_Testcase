@@ -1,11 +1,15 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
-from sklearn.feature_extraction.text import CountVectorizer
-import requests
-import re
+import os
+try:
+    import pandas as pd
+    from sklearn.model_selection import train_test_split
+    from sklearn.preprocessing import LabelEncoder
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.metrics import accuracy_score
+    from sklearn.feature_extraction.text import CountVectorizer
+    import requests
+    import re
+except ImportError:
+    os.
 
 
 
