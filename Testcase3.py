@@ -4,6 +4,7 @@ try:
 except:
     os.system("python -m pip install paramiko")
     import paramiko 
+from paramiko.ssh_exception import NoValidConnectionsError
   
 ssh_username = "127.0.0.1"
 ssh_password = "admin"
