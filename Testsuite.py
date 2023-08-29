@@ -9,7 +9,7 @@ except:
 testcase_result = [["TESTCASE TITLE " ,"RESULT"]]
 
 def main():
-    for i in range(1,3):
+    for i in range(1,4):
         print("="*100)
         print(f"Running Testcase{i}.py",flush=True)
         time.sleep(5)
