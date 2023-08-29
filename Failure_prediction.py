@@ -1,6 +1,6 @@
 import os
 
-package_to_install = ['pandas','sklearn','requests','regex']
+package_to_install = ['pandas','scikit-learn','requests','regex']
 for package_name in package_to_install:
     try:
         __import__(package_name)
