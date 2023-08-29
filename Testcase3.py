@@ -14,7 +14,7 @@ try:
     ssh_client = paramiko.SSHClient()
     
     ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    
+    print(f"Establish connection to {ssh_username}")
     ssh_client.connect(hostname=ssh_server, username=ssh_username, password=ssh_password)
     
     command = "ls -l"
@@ -27,4 +27,3 @@ try:
 
 except NoValidConnectionsError as e:
     print("No valid connections available:", e)
-    print("Exception message:", e.args[0])
