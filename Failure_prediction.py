@@ -43,7 +43,7 @@ def predict_failure_solution(failure):
     predicted_label = clf.predict(new_input_vector)
 
     print(f"Predicted label for '{failure}': {predicted_label}")
-
+    return predicted_label
 
 def download_console_log(url, output_file):
     # Jenkins Credentials
