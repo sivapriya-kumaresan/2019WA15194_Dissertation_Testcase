@@ -80,7 +80,7 @@ def parse_console_log(log_file):
         print(test_case_range)
 
         # Define regular expressions for parsing
-        pattern = r'.*Error.*|.*Errno.*|not found'  # Example: [ERROR] Some error message
+        pattern = r'.*Error.*|.*Errno.*|.*not found.*'  # Example: [ERROR] Some error message
         error_messages = re.findall(pattern, test_case_range)
 
         # Print the failure messages
