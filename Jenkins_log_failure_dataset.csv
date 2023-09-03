@@ -13,3 +13,5 @@ NameError,"SCRIPT ,  Variable or function name not defined - Define the variable
 Unable to connect,"SOFTWARE ,  Connection to IP address is denied. Check if IP is reachable using ping command "
 XMLParseError,"SCRIPT , Incomplete/ Invalid XML string received as input. Check and fix the XML string format"
 JSONDecodeError,"SCRIPT , Invalid JSON input provided. Check and fix the JSON format"
+ConnectTimeout, "SOFTWARE ,  Connection to IP address is not successful. Check if IP is valid and reachable"
+not found in response, "SOFTWARE , Expected response not found in command result. "
