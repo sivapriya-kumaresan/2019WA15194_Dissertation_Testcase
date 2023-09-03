@@ -1,6 +1,6 @@
 import os
 
-package_to_install = ['pandas','scikit-learn','requests','regex']
+package_to_install = ['pandas','scikit-learn','requests','regex','tabulate']
 for package_name in package_to_install:
     try:
         __import__(package_name)
@@ -15,7 +15,14 @@ from sklearn.metrics import accuracy_score
 from sklearn.feature_extraction.text import CountVectorizer
 import requests
 import re
+from  tabulate import tabulate
 
+def print_result(result_list):
+    headers = result_list[0]
+    data = result_list[1:]
+    table = tabulate(data, headers, tablefmt="fancy_grid",stralign="left")
+    print(table)
+    
 def predict_failure_solution(failure):
     # Load the dataset
     data = pd.read_csv('Jenkins_log_failure_dataset.csv',on_bad_lines='skip')
@@ -60,7 +67,7 @@ def download_console_log(url, output_file):
 def parse_console_log(log_file):
     with open(log_file, 'r') as file:
         log_data = file.read()
-
+    results = [["TESTCASE NAME ", "FAILURE", "CAUSE AND SOLUTION"]]
     start_marker = r'Running Testcase.*'
     end_marker = r'.*execution complete'
 
@@ -77,6 +84,9 @@ def parse_console_log(log_file):
         start_pos = start_positions[i]
         end_pos = end_positions[i]
         test_case_range = log_data[start_pos:end_pos]
+        testcase_name = re.findall("Running.*", test_case_range)
+        print("Testcase name ", testcase_name[0].split(" ")[-1])
+        testcase_name = testcase_name[0].split(" ")[-1]
         print(test_case_range)
 
         # Define regular expressions for parsing
@@ -87,10 +97,10 @@ def parse_console_log(log_file):
         print("\nFailure Messages:")
         for message in error_messages:
             print(message)
-            predict_failure_solution(message)
+            prediction = predict_failure_solution(message)[0]
+            results.append([testcase_name, message, prediction])
         print("\n")
-
-
+    print_result(results)
 
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
 log_file_path = "jenkins.log"
