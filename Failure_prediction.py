@@ -20,9 +20,9 @@ from  tabulate import tabulate
 def print_result(result_list):
     headers = result_list[0]
     data = result_list[1:]
-    table = tabulate(data, headers, tablefmt="fancy_grid",stralign="left")
-    table = table.encode("utf-8")
-    print(table.decode())
+    table = tabulate(data, headers, tablefmt="plain",stralign="left")
+    #table = table.encode("utf-8")
+    print(table)
     
 def predict_failure_solution(failure):
     # Load the dataset
