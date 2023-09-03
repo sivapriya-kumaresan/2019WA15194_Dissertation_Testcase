@@ -67,6 +67,7 @@ def download_console_log(url, output_file):
 def parse_console_log(log_file):
     with open(log_file, 'r') as file:
         log_data = file.read()
+        log_data = log_data.encode('utf-8')
     results = [["TESTCASE NAME ", "FAILURE", "CAUSE AND SOLUTION"]]
     start_marker = r'Running Testcase.*'
     end_marker = r'.*execution complete'
