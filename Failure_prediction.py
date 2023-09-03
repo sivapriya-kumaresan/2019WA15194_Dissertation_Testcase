@@ -18,7 +18,7 @@ import re
 
 def predict_failure_solution(failure):
     # Load the dataset
-    data = pd.read_csv('Jenkins_log_failure_dataset.csv')
+    data = pd.read_csv('Jenkins_log_failure_dataset.csv',on_bad_lines='skip')
     df = pd.DataFrame(data)
     # Convert text to feature vectors
     vectorizer = CountVectorizer()
