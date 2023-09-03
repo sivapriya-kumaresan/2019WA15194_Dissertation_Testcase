@@ -21,7 +21,7 @@ def print_result(result_list):
     headers = result_list[0]
     data = result_list[1:]
     table = tabulate(data, headers, tablefmt="fancy_grid",stralign="left")
-    print(table.decode("utf-8"))
+    print(table.encode("utf-8"))
     
 def predict_failure_solution(failure):
     # Load the dataset
