@@ -7,3 +7,4 @@ try:
     root = ET.fromstring(xml_string)
 except ET.ParseError as e:
     print("XMLParseError:", e)
+    return False
