@@ -26,6 +26,8 @@ def main():
         print("="*100)
     result_table = tabulate(testcase_result,headers='firstrow',tablefmt='grid') 
     print(result_table)
+    if "FAIL" in testcase_result[1] : return False
+    else : return True
 # Execute Testcases
 if __name__ == "__main__":
     main()
