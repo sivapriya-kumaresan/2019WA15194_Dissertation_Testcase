@@ -29,7 +29,7 @@ Incorrect username or password, "SCRIPT , Incorrect username or password provide
 Account locked , "SOFTWARE , Login to the system using given valid credentials denied "
 Account suspended , "SOFTWARE , Login to the system using given valid credentials denied "
 not defined , "SCRIPT , Trying to access undefined variable, Add valid definition for variable"
-concatenate str (not "int") to str , "SCRIPT , Tring to append int and str. Check the variable type"
+concatenate str (not 'int') to str , "SCRIPT , Tring to append int and str. Check the variable type"
 SyntaxError: invalid syntax , "SCRIPT , Invalid operation "
 non-default argument follows default argument , "SCRIPT , Change the order of arguments in function definition"
 required positional argument , "SCRIPT , Expected value to function variable is not provided"
