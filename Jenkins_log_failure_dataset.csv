@@ -40,5 +40,6 @@ rpc-error: Bad attribute value , "SCRIPT , Invalid value passed for attribute. C
 rpc-error: Invalid input data , "SCRIPT , Invalid input passed . Check and pass the correct input"
 Version conflict between Python packages , "ENVIRONMENT , Dependencies are demanding a specific version of a library that you don’t currently use in your own requirements.txt.Update your requirements.txt file to a version of the library that works for both your project and for your dependencies. "
 Missing required dependencies , "ENVIRONMENT , Incompatibility of module in any python library. Uninstall and re install the module"
+Infinite recursion causing stack overflow , "SCRIPT , The infinite loop function actually runs out of the stack memory segment. Fix infinite loop "
 
 
