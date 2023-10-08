@@ -45,7 +45,13 @@ def predict_failure_solution(failure):
     accuracy = accuracy_score(y_test.interpolate(), predicted_label)
     accuracy = accuracy * 100
     print('F1 score:', f1_score(y_test.interpolate(), predicted_label,average="weighted")) 
-                            
+    
+    print("Precision:", precision_score(y_test.interpolate(), predicted_label,average="weighted")) 
+                                    
+    print("Accuracy score : ",accuracy)
+    
+    print('Recall:', recall_score(y_test.interpolate(), predicted_label,average="weighted")) 
+    
     return predicted_label , accuracy
 
 def download_console_log(url, output_file):
