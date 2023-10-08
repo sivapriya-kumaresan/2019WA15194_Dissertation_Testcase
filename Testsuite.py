@@ -16,8 +16,7 @@ def main():
         testcase = f"Testcase{i}.py"
         status = os.system(f"python {testcase}")
         print(f"Testcase{i} execution complete")
-        print("Wait for 10 seconds before executing next testcase")
-        time.sleep(10)
+        time.sleep(2)
         print("="*100)
         result = "PASS" if not status else "FAIL"
         print("Testcase name : ",testcase)
