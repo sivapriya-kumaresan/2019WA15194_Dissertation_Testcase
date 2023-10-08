@@ -109,6 +109,7 @@ def parse_console_log(log_file):
         for test,message,pred in zip(test_list,failures,prediction):
             results.append([test, message, pred])
         print("\n")
+        print(results)
     print_result(results)
 
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
