@@ -42,9 +42,7 @@ def predict_failure_solution(failure):
     # Predict on a new input string
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
-    print("new_input_vector == ",new_input_vector)
-    print("predicted_label == ",predicted_label)
-    #print(f"Predicted label for '{failure}': {predicted_label}")
+ 
     return predicted_label
 
 def download_console_log(url, output_file):
