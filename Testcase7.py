@@ -20,9 +20,9 @@ headers = {'Content-Type': 'application/yang-data+json',
 url = f"https://{HOST}/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/interface=GigabitEthernet1/admin-status"
 response = requests.get(url, auth=(USER, PASS), headers=headers, verify=False)
 print(response.text)
-if "if-state-down" in response.text:
+status = "if-state-down" in response.text
+if status:
   print("Verification Success")
-  return True
 else:
   print("Expected admin-status if-state-down not found in response")
-  return False
+return status
