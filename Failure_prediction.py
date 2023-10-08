@@ -100,9 +100,10 @@ def parse_console_log(log_file):
         # Print the failure messages
         print("\nFailure Messages:")
         for message in error_messages:
+            print("-"*50)
             print(message)
             failures.append(message)
-            
+            print("-"*50)
     prediction = predict_failure_solution(failures)
         
     for test,message,pred in zip(test_list,failures,prediction):
