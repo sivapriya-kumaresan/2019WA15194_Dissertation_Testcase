@@ -11,7 +11,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import precision_score,recall_score, f1_score, accuracy_score
+from sklearn.metrics import precision_score,recall_score, f1_score, accuracy_score, confusion_matrix
 from sklearn.feature_extraction.text import CountVectorizer
 import requests
 import re
@@ -51,7 +51,15 @@ def predict_failure_solution(failure):
     print("Accuracy score : ",accuracy)
     
     print('Recall:', recall_score(y_test.interpolate(), predicted_label,average="weighted")) 
+
     
+    confusion_matrix = metrics.confusion_matrix(y_test, 
+                                            y_pred) 
+  
+    cm_display = metrics.ConfusionMatrixDisplay( confusion_matrix=confusion_matrix,display_labels=[0, 1, 2]) 
+    
+    cm_display.plot() 
+    plt.show() 
     return predicted_label , accuracy
 
 def download_console_log(url, output_file):
