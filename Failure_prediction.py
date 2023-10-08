@@ -33,11 +33,11 @@ def predict_failure_solution(failure):
     X = vectorizer.fit_transform(df['FAILURE'])
 
     # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, df['POSSIBLE_SOLUTION'], test_size=0.2)
+    X_train, X_test, y_train, y_test = train_test_split(X, df['POSSIBLE_SOLUTION'], test_size=0.5)
 
     # Train a Decision Tree Classifier
     clf = DecisionTreeClassifier()
-    clf.fit(X_train, y_train)
+    clf.fit(X, df['POSSIBLE_SOLUTION'])
 
     # Predict on a new input string
     new_input_vector = vectorizer.transform(failure)
