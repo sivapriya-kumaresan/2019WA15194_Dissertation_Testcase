@@ -105,10 +105,12 @@ def parse_console_log(log_file):
             failures.append(message)
             
         prediction = predict_failure_solution(failures)
-        print(test_list,"\n",failures,"\n",prediction)
+        
         for test,message,pred in zip(test_list,failures,prediction):
+            print("test,"\n" ,message,"\n", pred")
             results.append([test, message, pred])
-        results = [list(item) for item in set(tuple(row) for row in results)]
+            print("results :: ",results)
+        
         print("\n")
         print(results)
     print_result(results)
