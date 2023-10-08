@@ -104,16 +104,11 @@ def parse_console_log(log_file):
             print(message)
             failures.append(message)
             
-        prediction = predict_failure_solution(failures)
+    prediction = predict_failure_solution(failures)
         
-        for test,message,pred in zip(test_list,failures,prediction):
-            print("#"*50)
-            print(test,"\n",message,"\n", pred)
-            results.append([test, message, pred])
-            print("results :: ",results)
-            print("#"*50)
-        print("\n")
-        print(results)
+    for test,message,pred in zip(test_list,failures,prediction):
+        results.append([test, message, pred])
+        
     print_result(results)
 
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
