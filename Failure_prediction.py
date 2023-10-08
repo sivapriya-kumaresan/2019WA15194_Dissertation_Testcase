@@ -43,8 +43,8 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
     accuracy = accuracy_score(y_test.interpolate(), predicted_label)
-    print(f"Accuracy on user-defined input: {accuracy * 100:.2f}%")
-    return predicted_label
+    accuracy = accuracy * 100
+    return predicted_label , accuracy
 
 def download_console_log(url, output_file):
     # Jenkins Credentials
@@ -104,13 +104,16 @@ def parse_console_log(log_file):
             print(message)
             failures.append(message)
             print("-"*50)
-    prediction = predict_failure_solution(failures)
+    prediction , accuracy = predict_failure_solution(failures)
         
     for test,message,pred in zip(test_list,failures,prediction):
         results.append([test, message, pred])
         
     print_result(results)
-
+    print("\n")
+    print("=="*60)
+    print("Accuracy score : ",accuracy)
+    
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
 log_file_path = "jenkins.log"
 
