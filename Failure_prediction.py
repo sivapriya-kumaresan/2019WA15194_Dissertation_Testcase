@@ -11,7 +11,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score,recall_score, f1_score, accuracy_score
 from sklearn.feature_extraction.text import CountVectorizer
 import requests
 import re
@@ -40,7 +40,7 @@ def predict_failure_solution(failure):
     clf.fit(X_train, y_train)
 
     # Predict on a new input string
-    new_input_vector = vectorizer.transform([failure])
+    new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
     print(f"Predicted label for '{failure}': {predicted_label}")
@@ -68,7 +68,8 @@ def download_console_log(url, output_file):
 def parse_console_log(log_file):
     with open(log_file, 'r', encoding='utf-8') as file:
         log_data = file.read()
-        
+
+    failures , test_list = [] , []
     results = [["TESTCASE NAME ", "FAILURE", "CAUSE AND SOLUTION"]]
     start_marker = r'Running Testcase.*'
     end_marker = r'.*execution complete'
@@ -89,6 +90,7 @@ def parse_console_log(log_file):
         testcase_name = re.findall("Running.*", test_case_range)
         print("Testcase name ", testcase_name[0].split(" ")[-1])
         testcase_name = testcase_name[0].split(" ")[-1]
+        test_list.append(testcase_name)
         print(test_case_range)
 
         # Define regular expressions for parsing
@@ -99,8 +101,12 @@ def parse_console_log(log_file):
         print("\nFailure Messages:")
         for message in error_messages:
             print(message)
-            prediction = predict_failure_solution(message)[0]
-            results.append([testcase_name, message, prediction])
+            failures.append(message)
+            
+        prediction = predict_failure_solution(message)[0]
+
+        for test,message,pred in zip(test_list,failures,prediction):
+            results.append([test, message, pred])
         print("\n")
     print_result(results)
 
