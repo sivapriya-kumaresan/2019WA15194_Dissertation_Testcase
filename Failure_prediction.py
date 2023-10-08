@@ -56,7 +56,7 @@ def predict_failure_solution(failure):
     
     confusion_matrix = sklearn.metrics.confusion_matrix(y_test, predicted_label) 
   
-    cm_display = sklearn.metrics.ConfusionMatrixDisplay( confusion_matrix=confusion_matrix,display_labels=[0, 1, 2]) 
+    cm_display = sklearn.metrics.ConfusionMatrixDisplay( confusion_matrix=confusion_matrix,display_labels=[0, 1, 2,3,4,5,6]) 
     
     cm_display.plot() 
     plt.show() 
