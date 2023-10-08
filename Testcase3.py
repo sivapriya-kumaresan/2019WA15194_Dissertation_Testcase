@@ -1,4 +1,4 @@
-import os
+import os,sys
 try:
     import paramiko 
 except:
@@ -24,3 +24,4 @@ try:
     print(stdout.read().decode("utf-8"))
 except NoValidConnectionsError as e:
     print("No valid connections available:", e)
+    sys.exit(1)
