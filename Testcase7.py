@@ -25,4 +25,4 @@ if status:
   print("Verification Success")
 else:
   print("Expected admin-status if-state-down not found in response")
-return status
+
