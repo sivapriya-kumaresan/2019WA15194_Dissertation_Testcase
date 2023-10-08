@@ -53,13 +53,6 @@ def predict_failure_solution(failure):
     
     print('Recall:', recall_score(y_test.interpolate(), predicted_label,average="weighted")) 
 
-    
-    confusion_matrix = sklearn.metrics.confusion_matrix(y_test, predicted_label) 
-  
-    cm_display = sklearn.metrics.ConfusionMatrixDisplay( confusion_matrix=confusion_matrix,display_labels=[0, 1, 2,3,4,5,6]) 
-    
-    cm_display.plot() 
-    plt.show() 
     return predicted_label , accuracy
 
 def download_console_log(url, output_file):
