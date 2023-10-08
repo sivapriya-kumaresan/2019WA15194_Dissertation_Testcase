@@ -14,7 +14,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import precision_score,recall_score, f1_score, accuracy_score, confusion_matrix,ConfusionMatrixDisplay
 from sklearn.feature_extraction.text import CountVectorizer
 import requests
-import sklearn.metrics
+import sklearn
 import re
 from  tabulate import tabulate
 
@@ -54,10 +54,10 @@ def predict_failure_solution(failure):
     print('Recall:', recall_score(y_test.interpolate(), predicted_label,average="weighted")) 
 
     
-    confusion_matrix = metrics.confusion_matrix(y_test, 
+    confusion_matrix = sklearn.metrics.confusion_matrix(y_test, 
                                             y_pred) 
   
-    cm_display = metrics.ConfusionMatrixDisplay( confusion_matrix=confusion_matrix,display_labels=[0, 1, 2]) 
+    cm_display = sklearn.metrics.ConfusionMatrixDisplay( confusion_matrix=confusion_matrix,display_labels=[0, 1, 2]) 
     
     cm_display.plot() 
     plt.show() 
