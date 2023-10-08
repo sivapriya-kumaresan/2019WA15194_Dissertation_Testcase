@@ -1,6 +1,6 @@
 import os
 
-package_to_install = ['pandas','scikit-learn','requests','regex','tabulate']
+package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib']
 for package_name in package_to_install:
     try:
         __import__(package_name)
@@ -15,7 +15,7 @@ from sklearn.metrics import precision_score,recall_score, f1_score, accuracy_sco
 from sklearn.feature_extraction.text import CountVectorizer
 import requests
 import sklearn
-import re
+import re, matplotlib
 from  tabulate import tabulate
 
 def print_result(result_list):
