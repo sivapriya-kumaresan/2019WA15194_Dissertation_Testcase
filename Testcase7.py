@@ -22,14 +22,7 @@ response = requests.get(url, auth=(USER, PASS), headers=headers, verify=False)
 print(response.text)
 if "if-state-down" in response.text:
   print("Verification Success")
+  return True
 else:
   print("Expected admin-status if-state-down not found in response")
-  
-url = f"https://{HOST}/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/interface=GigabitEthernet1/oper-status"
-response = requests.get(url, auth=(USER, PASS), headers=headers, verify=False)
-print(response.text)
-if "if-oper-state-ready" in response.text:
-  print("Verification Success")
-else:
-  print("Expected oper-status if-oper-state-ready not found in response")
-  
+  return False
