@@ -42,9 +42,8 @@ def predict_failure_solution(failure):
     # Predict on a new input string
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
-
-    print("Accuracy:", accuracy_score(y_test, 
-                                  predicted_label)) 
+    accuracy = accuracy_score(y_test, predicted_label)
+    print(f"Accuracy on user-defined input: {accuracy * 100:.2f}%")
     return predicted_label
 
 def download_console_log(url, output_file):
