@@ -26,3 +26,8 @@ if status:
 else:
   print("Expected admin-status if-state-down not found in response")
 
+if status:
+    sys.exit(0)
+else:
+    sys.exit(1)
+
