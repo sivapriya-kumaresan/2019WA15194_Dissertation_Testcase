@@ -30,6 +30,7 @@ def accuracy(model,test,predicted):
     countCorrect = 0
     
     for i in range(0,count):
+        print("test[i] == ",test[i])
         ytest = model[model['FAILURE'] == test[i]]
         print("TEST == ",ytest)
         print("PREDICTED == ",predicted[i])
