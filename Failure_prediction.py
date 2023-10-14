@@ -119,7 +119,7 @@ def parse_console_log(log_file):
             print(message)
             failures.append(message)
             print("-"*50)
-    prediction , accuracy = predict_failure_solution(failures)
+    prediction = predict_failure_solution(failures)
         
     for test,message,pred in zip(test_list,failures,prediction):
         results.append([test, message, pred])
@@ -127,7 +127,7 @@ def parse_console_log(log_file):
     print_result(results)
     print("\n")
     print("=="*60)
-    print("Accuracy score : ",accuracy)
+    #print("Accuracy score : ",accuracy)
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
 log_file_path = "jenkins.log"
