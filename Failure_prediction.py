@@ -28,7 +28,7 @@ def print_result(result_list):
 def accuracy(model,test,predicted):
     count = len(predicted)
     countCorrect = 0
-    for i in 0..count:
+    for i in range(0,count):
         ytest = model(test)
         print("TEST == ",ytest)
         print("PREDICTED == ",predicted[i])
