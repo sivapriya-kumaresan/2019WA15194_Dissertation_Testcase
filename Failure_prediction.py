@@ -51,24 +51,15 @@ def predict_failure_solution(failure):
 
     # Train a Decision Tree Classifier
     clf = DecisionTreeClassifier()
-    clf.fit(X, df['POSSIBLE_SOLUTION'])
+    clf.fit(X_train, y_train)
 
     # Predict on a new input string
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
-    accuracy(df,new_input_vector,predicted_label)
-    #accuracy = accuracy_score(y_train.interpolate(), predicted_label)
-    #accuracy = accuracy * 100
-    #print('F1 score:', f1_score(y_test.interpolate(), predicted_label,average="weighted")) 
-    
-    #print("Precision:", precision_score(y_test.interpolate(), predicted_label,average="weighted")) 
-                                    
-    #print("Accuracy score : ",accuracy)
-    
-    #print('Recall:', recall_score(y_test.interpolate(), predicted_label,average="weighted")) 
-
-    return predicted_label , accuracy
+    #accuracy(df,new_input_vector,predicted_label)
+   
+    return predicted_label
 
 def download_console_log(url, output_file):
     # Jenkins Credentials
