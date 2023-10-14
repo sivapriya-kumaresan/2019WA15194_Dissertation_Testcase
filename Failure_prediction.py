@@ -31,19 +31,6 @@ def export_result(result,excel_file):
     df.to_excel(excel_file, index=False)
     print(f'Result Data has been written to {excel_file}.')
     
-def accuracy(model,test,predicted):
-    count = len(predicted)
-    countCorrect = 0
-    vectorizer = CountVectorizer()
-    for i in range(0,count):
-        print("test[i] == ",test[i])
-        ytest = model[vectorizer.fit_transform(model['FAILURE']) == test[i]]
-        print("TEST == ",ytest)
-        print("PREDICTED == ",predicted[i])
-        if predicted[i] == ytest:
-          countCorrect += 1
-    return countCorrect / count
-    
 def predict_failure_solution(failure):
     # Load the dataset
     data = pd.read_csv('Jenkins_log_failure_dataset.csv',on_bad_lines='skip')
@@ -63,8 +50,6 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
-    #accuracy(df,new_input_vector,predicted_label)
-   
     return predicted_label
 
 def download_console_log(url, output_file):
