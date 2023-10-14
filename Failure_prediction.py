@@ -1,6 +1,6 @@
 import os
 
-package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib']
+package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl']
 for package_name in package_to_install:
     try:
         __import__(package_name)
