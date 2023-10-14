@@ -28,6 +28,8 @@ def print_result(result_list):
 def accuracy(model,test,predicted):
     count = len(predicted)
     countCorrect = 0
+    print("MOD \n",model)
+    exit()
     for i in range(0,count):
         ytest = model(test)
         print("TEST == ",ytest)
