@@ -31,7 +31,7 @@ def accuracy(model,test,predicted):
     
     for i in range(0,count):
         print("test[i] == ",test[i])
-        ytest = model[model['FAILURE'] == test[i]]
+        ytest = model[vectorizer.fit_transform(model['FAILURE']) == test[i]]
         print("TEST == ",ytest)
         print("PREDICTED == ",predicted[i])
         if predicted[i] == ytest:
