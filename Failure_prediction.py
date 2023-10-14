@@ -25,6 +25,11 @@ def print_result(result_list):
     #table = table.encode("utf-8")
     print(table)
 
+def export_result(result,excel_file):
+    df = pd.DataFrame(result, columns=data[0])
+    df.to_excel(excel_file, index=False)
+    print(f'Result Data has been written to {excel_file}.')
+    
 def accuracy(model,test,predicted):
     count = len(predicted)
     countCorrect = 0
@@ -128,6 +133,7 @@ def parse_console_log(log_file):
     print("\n")
     print("=="*60)
     #print("Accuracy score : ",accuracy)
+    export_result(results,'Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
 log_file_path = "jenkins.log"
