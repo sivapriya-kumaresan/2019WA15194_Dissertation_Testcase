@@ -26,7 +26,7 @@ def print_result(result_list):
     print(table)
 
 def export_result(result,excel_file):
-    df = pd.DataFrame(result, columns=data[0])
+    df = pd.DataFrame(result, columns=result[0])
     df.to_excel(excel_file, index=False)
     print(f'Result Data has been written to {excel_file}.')
     
