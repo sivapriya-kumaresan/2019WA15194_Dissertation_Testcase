@@ -28,7 +28,7 @@ def print_result(result_list):
 def accuracy(model,test,predicted):
     count = len(predicted)
     countCorrect = 0
-    
+    vectorizer = CountVectorizer()
     for i in range(0,count):
         print("test[i] == ",test[i])
         ytest = model[vectorizer.fit_transform(model['FAILURE']) == test[i]]
