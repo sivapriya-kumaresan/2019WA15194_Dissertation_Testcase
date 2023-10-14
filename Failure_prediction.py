@@ -24,6 +24,17 @@ def print_result(result_list):
     table = tabulate(data, headers, tablefmt="simple",stralign="left")
     #table = table.encode("utf-8")
     print(table)
+
+def accuracy(model,test,predicted):
+    count = len(predicted)
+    countCorrect = 0
+    for i in 0..count:
+        ytest = model(test)
+        print("TEST == ",ytest)
+        print("PREDICTED == ",predicted[i])
+        if predicted[i] == ytest:
+          countCorrect += 1
+    return countCorrect / count
     
 def predict_failure_solution(failure):
     # Load the dataset
@@ -43,15 +54,17 @@ def predict_failure_solution(failure):
     # Predict on a new input string
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
-    accuracy = accuracy_score(y_train.interpolate(), predicted_label)
-    accuracy = accuracy * 100
-    print('F1 score:', f1_score(y_test.interpolate(), predicted_label,average="weighted")) 
+
+    accuracy(df,new_input_vector,predicted_label)
+    #accuracy = accuracy_score(y_train.interpolate(), predicted_label)
+    #accuracy = accuracy * 100
+    #print('F1 score:', f1_score(y_test.interpolate(), predicted_label,average="weighted")) 
     
-    print("Precision:", precision_score(y_test.interpolate(), predicted_label,average="weighted")) 
+    #print("Precision:", precision_score(y_test.interpolate(), predicted_label,average="weighted")) 
                                     
-    print("Accuracy score : ",accuracy)
+    #print("Accuracy score : ",accuracy)
     
-    print('Recall:', recall_score(y_test.interpolate(), predicted_label,average="weighted")) 
+    #print('Recall:', recall_score(y_test.interpolate(), predicted_label,average="weighted")) 
 
     return predicted_label , accuracy
 
