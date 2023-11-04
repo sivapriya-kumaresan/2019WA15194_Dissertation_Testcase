@@ -51,7 +51,7 @@ def predict_failure_solution(failure):
     predicted_label = clf.predict(new_input_vector)
 
     #Calculate the aacuracy
-    accuracy_score(y_test, predicted_label)
+    #accuracy_score(y_test, predicted_label)
     
     return predicted_label
 
