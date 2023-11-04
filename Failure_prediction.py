@@ -71,6 +71,7 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
+    calculate_accuracy(train_to_array, test_to_array, fail_to_array, y_train, y_test, predicted_label)
     return predicted_label
 
 def download_console_log(url, output_file):
