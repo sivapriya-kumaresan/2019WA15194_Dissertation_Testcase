@@ -23,7 +23,7 @@ from  tabulate import tabulate
 def print_result(result_list):
     headers = result_list[0]
     data = result_list[1:]
-    table = tabulate(data, headers, tablefmt="fancy_outline",stralign="left")
+    table = tabulate(data, headers, tablefmt="simple_grid",stralign="left")
     #table = table.encode("utf-8")
     print(table)
 
