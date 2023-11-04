@@ -31,14 +31,14 @@ def export_result(result,excel_file):
     df.to_excel(excel_file, index=False)
     print(f'Result Data has been written to {excel_file}.')
     
-def calculate_accuracy(train_to_array, test_to_array, fail_to_array, y_train, y_test, predicted_label):
+def calculate_accuracy(X_train, X_test, new_input_vector, y_train, y_test, predicted_label):
     import numpy as np
     from scipy.sparse import csr_matrix
     
     # assuming fail, train, and test are csr_matrix objects
-    fail_to_array = fail.toarray()
-    train_to_array = train.toarray()
-    test_to_array = test.toarray()
+    fail_to_array = new_input_vector.toarray()
+    train_to_array = X_train.toarray()
+    test_to_array = X_test.toarray()
     
     correct_predictions = 0
     for train_array, test_array, fail_array, train_y, test_y, fail_y in zip(train_to_array, test_to_array, fail_to_array, y_train, y_test, predicted_label):
