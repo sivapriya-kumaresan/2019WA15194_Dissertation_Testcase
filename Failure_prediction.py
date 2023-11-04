@@ -37,6 +37,13 @@ def calculate_accuracy(X_train, X_test, new_input_vector, y_train, y_test, predi
     from scipy.sparse import csr_matrix
     
     # assuming fail, train, and test are csr_matrix objects
+    print("X train : ")
+    print(X_train)
+    print("X_test : ")
+    print(X_test)
+    print("new_input_vector : ")
+    print(new_input_vector)
+    
     fail_to_array = new_input_vector.toarray()
     train_to_array = X_train.toarray()
     test_to_array = X_test.toarray()
