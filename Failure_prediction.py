@@ -40,7 +40,7 @@ def predict_failure_solution(failure):
     X = vectorizer.fit_transform(df['FAILURE'])
 
     # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, df['POSSIBLE_SOLUTION'], test_size=0.5)
+    X_train, X_test, y_train, y_test = train_test_split(X, df['POSSIBLE_SOLUTION'], test_size=0.3)
 
     # Train a Decision Tree Classifier
     clf = DecisionTreeClassifier()
@@ -50,6 +50,7 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
+    print(len(y_test))
     #Calculate the aacuracy
     #accuracy_score(y_test, predicted_label)
     
