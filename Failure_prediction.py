@@ -46,7 +46,7 @@ def calculate_accuracy(X_data,y_data , new_input_vector,predicted_label):
                     correct_predictions += 1
                     print("res_data == ",res_data)
                     print("fail_y == ",fail_y)      
-    return correct_predictions/len(X_data)
+    return correct_predictions/len(predicted_label)
     
 def predict_failure_solution(failure):
     # Load the dataset
