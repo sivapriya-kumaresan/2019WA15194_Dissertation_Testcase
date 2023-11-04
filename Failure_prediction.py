@@ -45,10 +45,10 @@ def calculate_accuracy(X_data,y_data , new_input_vector,predicted_label):
             if np.array_equal(fail_array, train_data):
                 if np.array_equal(res_data, fail_y):
                     correct_predictions += 1
-            print("fail_array == ",fail_array)
-            print("train_data == ",train_data)
-            print("res_data == ",res_data)
-            print("fail_y == ",fail_y)
+                print("fail_array == ",fail_array)
+                print("train_data == ",train_data)
+                print("res_data == ",res_data)
+                print("fail_y == ",fail_y)
     
     print("Number of correct predictions == ", correct_predictions) 
     
