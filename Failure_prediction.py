@@ -1,6 +1,6 @@
 import os
 
-package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl']
+package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl','scipy','numpy']
 for package_name in package_to_install:
     try:
         __import__(package_name)
@@ -30,7 +30,27 @@ def export_result(result,excel_file):
     df = pd.DataFrame(result[1:], columns=result[0])
     df.to_excel(excel_file, index=False)
     print(f'Result Data has been written to {excel_file}.')
-
+    
+def calculate_accuracy(train_to_array, test_to_array, fail_to_array, y_train, y_test, predicted_label):
+    import numpy as np
+    from scipy.sparse import csr_matrix
+    
+    # assuming fail, train, and test are csr_matrix objects
+    fail_to_array = fail.toarray()
+    train_to_array = train.toarray()
+    test_to_array = test.toarray()
+    
+    correct_predictions = 0
+    for train_array, test_array, fail_array, train_y, test_y, fail_y in zip(train_to_array, test_to_array, fail_to_array, y_train, y_test, predicted_label):
+        if np.array_equal(fail_array, train_array):
+            if np.array_equal(train_y, fail_y):
+                correct_predictions += 1
+        elif np.array_equal(fail_array, test_array):
+            if np.array_equal(test_y, fail_y):
+                correct_predictions += 1
+    
+    print("Number of correct predictions == ", correct_predictions) 
+    
 def predict_failure_solution(failure):
     # Load the dataset
     data = pd.read_csv('Jenkins_log_failure_dataset.csv',on_bad_lines='skip')
@@ -51,28 +71,6 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
-    print(len(y_test))
-    print("X test ")
-
-    correct_predictions = 0
-    for train,test,fail,train_y,test_y,fail_y in zip(X_train,X_test,new_input_vector,y_train,y_test,predicted_label):
-        if (fail == train).any():
-            if (train_y == fail_y).any():
-                correct_predictions += 1
-        elif (fail == test).any():
-            if (test_y == fail_y).any():
-                correct_predictions += 1
-    print("Number of correct predictions == ", correct_predictions)  
-            
-    print("PRed Data")
-    for fail in new_input_vector:
-        print(fail)
-
-    
-    #Calculate the aacuracy
-    accuracy = accuracy_score(y_test, predicted_label)
-    print('Accuracy: %.2f' % (accuracy * 100))
-    
     return predicted_label
 
 def download_console_log(url, output_file):
