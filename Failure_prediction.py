@@ -135,9 +135,10 @@ def parse_console_log(log_file):
     print_result(results)
     print("\n")
     print("=="*60)
-    
+    print("\n")
+    print("-"*50)
     print("Accuracy: %.2f" % (accuracy * 100))
-
+    print("-"*50)
     export_result(results,os.getcwd()+'\Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
