@@ -47,8 +47,16 @@ def calculate_accuracy(X_data,y_data , new_input_vector,predicted_label):
     return correct_predictions/len(predicted_label)
 
 def categorize_failures(prediction):
-    print("prediction list ::::: ",prediction)
-    
+    env,script,sw = 0,0,0
+    for pred in prediction:
+        category = pred.split(",")[0].strip()
+        if category == "ENVIRONMENT" :  env+=1
+        elif category == "SCRIPT" : script+=1
+        elif category == "SOFTWARE" : sw+=1
+    data = [env,script,sw]
+    headers = ["ENVIRONMENT" ,"SCRIPT","SOFTWARE" ]
+    table = tabulate(data, headers, tablefmt="simple",stralign="grid")
+    print(table)
     
 def predict_failure_solution(failure):
     # Load the dataset
