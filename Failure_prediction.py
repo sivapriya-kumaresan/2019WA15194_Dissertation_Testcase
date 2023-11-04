@@ -144,7 +144,8 @@ def parse_console_log(log_file):
         
     for test,message,pred in zip(test_list,failures,prediction):
         results.append([test, message, pred])
-        
+
+    print("\n")
     print_result(results)
     print("\n")
     print("=="*60)
