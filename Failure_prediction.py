@@ -45,6 +45,10 @@ def calculate_accuracy(X_data,y_data , new_input_vector,predicted_label):
                 if np.array_equal(res_data, fail_y):
                     correct_predictions += 1      
     return correct_predictions/len(predicted_label)
+
+def categorize_failures(prediction):
+    print("prediction list ::::: ",prediction)
+    
     
 def predict_failure_solution(failure):
     # Load the dataset
@@ -135,11 +139,15 @@ def parse_console_log(log_file):
     print_result(results)
     print("\n")
     print("=="*60)
+    
     print("\n")
     print("-"*50)
     print("Model Accuracy: %.2f" % (accuracy * 100))
     print("-"*50)
     print("\n")
+
+    categorize_failures(prediction)
+    
     export_result(results,os.getcwd()+'\Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
