@@ -53,7 +53,7 @@ def predict_failure_solution(failure):
 
     print(len(y_test))
     #Calculate the aacuracy
-    #accuracy_score(y_test, predicted_label)
+    accuracy_score(y_test, predicted_label)
     
     return predicted_label
 
