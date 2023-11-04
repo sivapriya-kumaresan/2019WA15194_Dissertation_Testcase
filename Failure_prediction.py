@@ -35,10 +35,15 @@ def export_result(result,excel_file):
 def calculate_accuracy(X_data,y_data , new_input_vector,predicted_label):
     import numpy as np
     from scipy.sparse import csr_matrix
-     
+
+    print("new_input_vector ")
+    print(new_input_vector)
+    print("X_data " )
+    print(X_data)
     fail_to_array = new_input_vector.toarray()
     train_to_array = X_data.toarray()
-    
+    print("fail_array == ",fail_array)
+    print("train_data == ",train_data)
     correct_predictions = 0
     for fail_array, fail_y in zip(fail_to_array,predicted_label):
         print("fail_array == ",fail_array)
