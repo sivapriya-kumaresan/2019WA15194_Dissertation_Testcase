@@ -53,7 +53,8 @@ def categorize_failures(prediction):
         if category == "ENVIRONMENT" :  env+=1
         elif category == "SCRIPT" : script+=1
         elif category == "SOFTWARE" : sw+=1
-    data = [env,script,sw]
+            
+    data = [[env, script, sw]]  
     headers = ["ENVIRONMENT" ,"SCRIPT","SOFTWARE" ]
     table = tabulate(data, headers, tablefmt="simple",stralign="grid")
     print(table)
