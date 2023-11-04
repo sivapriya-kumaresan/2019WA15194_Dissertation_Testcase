@@ -53,7 +53,8 @@ def predict_failure_solution(failure):
 
     print(len(y_test))
     #Calculate the aacuracy
-    accuracy_score(y_test, predicted_label)
+    accuracy = accuracy_score(y_test, predicted_label)
+    print('Accuracy: %.2f' % (accuracy * 100))
     
     return predicted_label
 
