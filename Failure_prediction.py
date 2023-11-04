@@ -53,7 +53,7 @@ def predict_failure_solution(failure):
 
     print(len(y_test))
     print("X test ")
-    for train,test,fail in zip(X_train,X_test,fail):
+    for train,test,fail in zip(X_train,X_test,new_input_vector):
         print("Train")
         print(train)
         print("Test")
