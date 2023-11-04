@@ -68,8 +68,8 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
-    calculate_accuracy (X, df['POSSIBLE_SOLUTION'], new_input_vector, predicted_label)
-    return predicted_label
+    accuracy = calculate_accuracy (X, df['POSSIBLE_SOLUTION'], new_input_vector, predicted_label)
+    return predicted_label,accuracy
 
 def download_console_log(url, output_file):
     # Jenkins Credentials
