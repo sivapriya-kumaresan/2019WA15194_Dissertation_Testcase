@@ -53,16 +53,17 @@ def predict_failure_solution(failure):
 
     print(len(y_test))
     print("X test ")
+
     correct_predictions = 0
     for train,test,fail,train_y,test_y,fail_y in zip(X_train,X_test,new_input_vector,y_train,y_test,predicted_label):
-        if fail == train :
-            if train_y == fail_y:
+        if (fail == train).any():
+            if (train_y == fail_y).any():
                 correct_predictions += 1
-        elif fail == test :
-            if test_y == fail_y:
+        elif (fail == test).any():
+            if (test_y == fail_y).any():
                 correct_predictions += 1
-    print("Number of correct predictions == ", correct_predictions)        
-        
+    print("Number of correct predictions == ", correct_predictions)  
+            
     print("PRed Data")
     for fail in new_input_vector:
         print(fail)
