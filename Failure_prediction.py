@@ -1,7 +1,7 @@
 
 import os
 
-package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl','scipy','numpy']
+package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl','scipy','numpy','termcolor']
 for package_name in package_to_install:
     try:
         __import__(package_name)
@@ -9,6 +9,7 @@ for package_name in package_to_install:
         os.system(f"python -m pip install {package_name}")
         
 import pandas as pd
+from termcolor import colored
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
@@ -135,7 +136,7 @@ def parse_console_log(log_file):
     print_result(results)
     print("\n")
     print("=="*60)
-    print("Accuracy: %.2f" % (accuracy * 100))
+    print(colored("Accuracy: %.2f" % (accuracy * 100), 'red', attrs=['bold', 'blink']))
     export_result(results,os.getcwd()+'\Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
