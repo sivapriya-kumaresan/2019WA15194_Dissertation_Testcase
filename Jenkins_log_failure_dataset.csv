@@ -11,7 +11,7 @@ FileNotFoundError: [Errno 2] No such file or directory:,"SCRIPT , Attempting to 
 IOError ,"ENVIRONMENT , Check file permissions"
 ModuleNotFoundError: No module named,"ENVIRONMENT , Module or package not found  - Install the missing module or fix the import statement"
 NameError,"SCRIPT ,  Variable or function name not defined - Define the variable or function before using it"
-No valid connections available: [Errno None] Unable to connect,"SOFTWARE ,  Connection to IP address is denied. Check if IP is reachable using ping command "
+No valid connections available: [Errno None] Unable to connect to port 22 on,"SOFTWARE ,  Connection to IP address is denied. Check if IP is reachable using ping command "
 xml.etree.ElementTree.ParseError: no element found:,"SCRIPT , Incomplete/ Invalid XML string received as input. Check and fix the XML string format"
 json.decoder.JSONDecodeError:,"SCRIPT , Invalid JSON input provided. Check and fix the JSON format"
 ConnectTimeout, "SOFTWARE ,  Connection to IP address is not successful. Check if IP is valid and reachable"
