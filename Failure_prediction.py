@@ -1,7 +1,7 @@
 
 import os
 
-package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl','scipy','numpy','termcolor']
+package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl','scipy','numpy','IPython']
 for package_name in package_to_install:
     try:
         __import__(package_name)
@@ -9,7 +9,7 @@ for package_name in package_to_install:
         os.system(f"python -m pip install {package_name}")
         
 import pandas as pd
-from termcolor import colored
+from IPython.display import HTML
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
@@ -139,9 +139,12 @@ def parse_console_log(log_file):
     
     highlight_start = "\033[48;5;226m"  
     highlight_end = "\033[0m"  
-    text = "Accuracy: %.2f" % (accuracy * 100)
+    accuracy = "Accuracy: %.2f" % (accuracy * 100)
 
-    print(f"{highlight_start}{text}{highlight_end}")
+    highlighted_text = '<span style="background-color: yellow; padding: 2px;">{}</span>'.format(accuracy)
+
+    HTML(highlighted_text)
+    
     export_result(results,os.getcwd()+'\Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
