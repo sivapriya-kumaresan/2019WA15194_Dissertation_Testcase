@@ -46,9 +46,7 @@ def calculate_accuracy(X_data,y_data , new_input_vector,predicted_label):
                     correct_predictions += 1
                     print("res_data == ",res_data)
                     print("fail_y == ",fail_y)      
-             
-    
-    print("Number of correct predictions == ", correct_predictions) 
+    return correct_predictions/len(X_data)
     
 def predict_failure_solution(failure):
     # Load the dataset
@@ -131,7 +129,7 @@ def parse_console_log(log_file):
             print(message)
             failures.append(message)
             print("-"*50)
-    prediction = predict_failure_solution(failures)
+    prediction,accuracy = predict_failure_solution(failures)
         
     for test,message,pred in zip(test_list,failures,prediction):
         results.append([test, message, pred])
@@ -139,7 +137,7 @@ def parse_console_log(log_file):
     print_result(results)
     print("\n")
     print("=="*60)
-    #print("Accuracy score : ",accuracy)
+    print("Accuracy: %.2f" % (accuracy * 100))
     export_result(results,os.getcwd()+'\Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
