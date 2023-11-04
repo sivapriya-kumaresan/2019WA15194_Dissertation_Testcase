@@ -56,7 +56,7 @@ def categorize_failures(prediction):
             
     data = [[env, script, sw]]  
     headers = ["ENVIRONMENT" ,"SCRIPT","SOFTWARE" ]
-    table = tabulate(data, headers, tablefmt="simple",stralign="grid")
+    table = tabulate(data, headers, tablefmt="pretty",stralign="grid")
     print(table)
     
 def predict_failure_solution(failure):
@@ -154,9 +154,10 @@ def parse_console_log(log_file):
     print("Model Accuracy: %.2f" % (accuracy * 100))
     print("-"*50)
     print("\n")
-
-    categorize_failures(prediction)
     
+    print("Category of failures")
+    categorize_failures(prediction)
+    print("\n")
     export_result(results,os.getcwd()+'\Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
