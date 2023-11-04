@@ -54,7 +54,8 @@ def predict_failure_solution(failure):
     print(len(y_test))
     print("X test ")
     for train,test in zip(X_train,X_test):
-        print(train + " :: " +test)
+        print(train)
+        print(test)
 
     print("PRed Data")
     for fail in new_input_vector:
