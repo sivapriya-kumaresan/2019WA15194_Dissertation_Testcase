@@ -70,7 +70,7 @@ def predict_failure_solution(failure):
     clf.fit(X, df['POSSIBLE_SOLUTION'])
     
     # Predict on a new input string
-    new_input_vector = vectorizer.transform(failure)
+    new_input_vector = vectorizer.fit_transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
     calculate_accuracy (X, df['POSSIBLE_SOLUTION'], new_input_vector, predicted_label)
