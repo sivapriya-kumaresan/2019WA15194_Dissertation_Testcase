@@ -136,7 +136,10 @@ def parse_console_log(log_file):
     print_result(results)
     print("\n")
     print("=="*60)
-    print(colored("Accuracy: %.2f" % (accuracy * 100), 'red', attrs=['bold', 'blink']))
+    
+    highlight_start = "\033[48;5;226m"  
+    highlight_end = "\033[0m"  
+    print({highlight_start}{"Accuracy: %.2f" % (accuracy * 100)}{highlight_end})
     export_result(results,os.getcwd()+'\Prediction_results.xlsx')
     
 jenkins_url = "http://localhost:8080/job/Test_Job/lastBuild/consoleText"
