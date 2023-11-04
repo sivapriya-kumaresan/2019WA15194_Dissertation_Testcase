@@ -24,7 +24,7 @@ def print_result(result_list):
     headers = result_list[0]
     data = result_list[1:]
     table = tabulate(data, headers, tablefmt="simple_grid",stralign="left")
-    #table = table.encode("utf-8")
+    table = table.encode("utf-8")
     print(table)
 
 def export_result(result,excel_file):
