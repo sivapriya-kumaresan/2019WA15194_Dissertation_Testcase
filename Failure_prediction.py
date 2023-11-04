@@ -32,36 +32,24 @@ def export_result(result,excel_file):
     df.to_excel(excel_file, index=False)
     print(f'Result Data has been written to {excel_file}.')
     
-def calculate_accuracy(X_train, X_test, new_input_vector, y_train, y_test, predicted_label):
+def calculate_accuracy(X_data,y_data , new_input_vector,predicted_label):
     import numpy as np
     from scipy.sparse import csr_matrix
-    
-    # assuming fail, train, and test are csr_matrix objects
-    print("X train : ")
-    print(X_train)
-    print("X_test : ")
-    print(X_test)
-    print("new_input_vector : ")
-    print(new_input_vector)
-    
+     
     fail_to_array = new_input_vector.toarray()
-    train_to_array = X_train.toarray()
-    test_to_array = X_test.toarray()
+    train_to_array = X_data.toarray()
     
     correct_predictions = 0
     for fail_array, fail_y in zip(fail_to_array,predicted_label):
-        for train_array, test_array, train_y, test_y,in zip(train_to_array, test_to_array, y_train, y_test):
-            
+        for train_data, res_data in zip(train_to_array, y_data):    
             print("fail_array == ",fail_array)
-            print("train_array == ",train_array)
-            print("test_array == ",test_array)
+            print("train_data == ",train_data)
+            print("res_data == ",res_data)
             
-            if np.array_equal(fail_array, train_array):
-                if np.array_equal(train_y, fail_y):
+            if np.array_equal(fail_array, train_data):
+                if np.array_equal(res_data, fail_y):
                     correct_predictions += 1
-            elif np.array_equal(fail_array, test_array):
-                if np.array_equal(test_y, fail_y):
-                    correct_predictions += 1
+            
     
     print("Number of correct predictions == ", correct_predictions) 
     
@@ -85,7 +73,7 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
-    calculate_accuracy(X_train, X_test, new_input_vector, y_train, y_test, predicted_label)
+    calculate_accuracyX, df['POSSIBLE_SOLUTION'], new_input_vector, predicted_label)
     return predicted_label
 
 def download_console_log(url, output_file):
