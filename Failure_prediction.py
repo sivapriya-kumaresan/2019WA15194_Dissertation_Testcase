@@ -1,3 +1,4 @@
+
 import os
 
 package_to_install = ['pandas','scikit-learn','requests','regex','tabulate','matplotlib','openpyxl','scipy','numpy']
@@ -42,6 +43,11 @@ def calculate_accuracy(X_train, X_test, new_input_vector, y_train, y_test, predi
     
     correct_predictions = 0
     for train_array, test_array, fail_array, train_y, test_y, fail_y in zip(train_to_array, test_to_array, fail_to_array, y_train, y_test, predicted_label):
+        
+        print("fail_array == ",fail_array)
+        print("train_array == ",train_array)
+        print("test_array == ",test_array)
+        
         if np.array_equal(fail_array, train_array):
             if np.array_equal(train_y, fail_y):
                 correct_predictions += 1
