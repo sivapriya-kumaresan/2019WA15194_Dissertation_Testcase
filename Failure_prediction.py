@@ -30,7 +30,7 @@ def export_result(result,excel_file):
     df = pd.DataFrame(result[1:], columns=result[0])
     df.to_excel(excel_file, index=False)
     print(f'Result Data has been written to {excel_file}.')
-    
+
 def predict_failure_solution(failure):
     # Load the dataset
     data = pd.read_csv('Jenkins_log_failure_dataset.csv',on_bad_lines='skip')
@@ -50,6 +50,9 @@ def predict_failure_solution(failure):
     new_input_vector = vectorizer.transform(failure)
     predicted_label = clf.predict(new_input_vector)
 
+    #Calculate the aacuracy
+    accuracy_score(y_test, predicted_label)
+    
     return predicted_label
 
 def download_console_log(url, output_file):
