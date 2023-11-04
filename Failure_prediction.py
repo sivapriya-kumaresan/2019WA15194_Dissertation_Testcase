@@ -53,13 +53,14 @@ def predict_failure_solution(failure):
 
     print(len(y_test))
     print("X test ")
-    for test in X_test:
-        print(test)
+    for train,test in zip(X_train,X_test):
+        print(train + " :: " +test)
 
     print("PRed Data")
     for fail in new_input_vector:
         print(fail)
-        
+
+    
     #Calculate the aacuracy
     accuracy = accuracy_score(y_test, predicted_label)
     print('Accuracy: %.2f' % (accuracy * 100))
