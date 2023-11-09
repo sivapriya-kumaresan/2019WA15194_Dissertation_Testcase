@@ -72,8 +72,8 @@ def predict_failure_solution(failure):
 
     # Train a Decision Tree Classifier
     clf = DecisionTreeClassifier()
-    #clf.fit(X_train, y_train)
-    clf.fit(X, df['POSSIBLE_SOLUTION'])
+    clf.fit(X_train, y_train)
+    #clf.fit(X, df['POSSIBLE_SOLUTION'])
     
     # Predict on a new input string
     new_input_vector = vectorizer.transform(failure)
