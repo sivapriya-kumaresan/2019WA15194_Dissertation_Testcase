@@ -57,7 +57,7 @@ Unrecognized response from device API," SOFTWARE, API changes or version mismatc
 Unexpected VLAN trunking issues," ENVIRONMENT, Mismatched VLAN configurations on trunk links, 1. Verify and synchronize VLAN configurations on trunk links 2. Implement consistent VLAN tagging"
 Device memory fragmentation," ENVIRONMENT, Prolonged device uptime leading to memory fragmentation, 1. Schedule periodic device reboots to alleviate memory fragmentation "
 Incorrect SNMP configuration," ENVIRONMENT, Misconfigured SNMP settings on devices, 1. Verify and correct SNMP configurations on devices 2. Ensure SNMP community strings are accurate "
-Device API server unavailability," ENVIRONMENT, API server downtime or unresponsive, 1. Check the status of the API server 2. Investigate and resolve API server issues " 
+Device API server unavailability," ENVIRONMENT, API server downtime or unresponsive, 1. Check the status of the API server 2. Investigate and resolve API server issues "
 Unexpected routing table changes," SCRIPT, Incorrect routing protocol configurations, 1. Validate and correct routing protocol settings in scripts 2. Monitor and analyze routing table changes "
 Unexpected software crash on device, "SOFTWARE, Unhandled software exception, 1. Investigate logs for crash details 2. Update to the latest stable firmware version "
 Device not responding to SNMP queries, "SOFTWARE, SNMP service failure on the device, 1. Restart SNMP service on the device 2. Check SNMP configuration settings "
@@ -91,7 +91,3 @@ Failure to connect to external services, " SCRIPT, Network or connectivity issue
 Incorrect usage of APIs in script," SCRIPT, Improper API requests or misinterpretation of API responses, 1. Review API documentation and usage in the script 2. Validate and format API requests correctly"
 Failure in handling script configuration files, "SCRIPT, Issues with reading or parsing configuration files, 1. Verify and correct configuration file paths and formats 2. Implement robust configuration file parsing"
 Unexpected behavior due to outdated libraries, "SOFTWARE, Outdated or incompatible third-party libraries, 1. Update third-party libraries to the latest compatible versions 2. Verify library compatibility with script requirements "
-
-
-
-
