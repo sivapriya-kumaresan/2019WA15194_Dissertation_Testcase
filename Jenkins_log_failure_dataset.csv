@@ -65,7 +65,7 @@ Mismatched device and automation tool versions," SOFTWARE, Incompatibility betwe
 Unexpected behavior after firmware upgrade, "SOFTWARE, Firmware bugs or compatibility issues, 1. Verify firmware compatibility before upgrade 2. Rollback to a stable firmware version if needed "
 Failure in handling concurrent API requests, "SOFTWARE, Lack of concurrency control in API handling, 1. Implement proper concurrency control mechanisms 2. Optimize API request handling "
 Inconsistent response format from API, "SOFTWARE, API server returning unexpected data format, 1. Adjust scripts to handle variations in API response format 2. Collaborate with API developers for consistent responses"
-Device not joining network after reboot, SOFTWARE, Configuration issues preventing network reintegration, 1. Review device configuration post-reboot 2. Ensure correct network settings in startup configurations "
+Device not joining network after reboot, "SOFTWARE, Configuration issues preventing network reintegration, 1. Review device configuration post-reboot 2. Ensure correct network settings in startup configurations "
 Security vulnerabilities in automation scripts," SCRIPT, Insecure coding practices in scripts, 1. Conduct security audits on scripts 2. Implement secure coding guidelines "
 Unintended service disruptions during automation, "SOFTWARE, Automation scripts causing service interruptions, 1. Test automation scripts in a controlled environment 2. Implement gradual rollouts of automation changes "
 Failure to establish secure connections, "SOFTWARE, SSL/TLS configuration issues on devices, 1. Verify SSL/TLS configurations on devices 2. Use valid and up-to-date SSL/TLS certificates "
