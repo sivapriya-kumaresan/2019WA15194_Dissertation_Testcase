@@ -1,4 +1,4 @@
-import os
+import os,sys
 try:
     import netmiko
     import paramiko
@@ -36,3 +36,5 @@ finally:
     # Close the SSH connection if it was established
     if 'net_connect' in locals():
         net_connect.disconnect()
+    else:
+        sys.exit(1)
