@@ -150,12 +150,6 @@ def parse_console_log(log_file):
     print("\n")
     print("=="*60)
     
-    print("\n")
-    print("-"*50)
-    print("Model Accuracy: %.2f" % (accuracy * 100))
-    print("-"*50)
-    print("\n")
-    
     print("Category of failures")
     categorize_failures(prediction)
     print("\n")
